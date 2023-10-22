@@ -10,7 +10,7 @@ export default function Features(){
 <h1 style={{
     color: '#247524',
     marginLeft: 10
-}}>FEATURES</h1>
+}}>FEATURES creatures</h1>
 <div style={{
     width: 800,
     height: 300,
