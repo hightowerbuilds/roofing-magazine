@@ -1,0 +1,22 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    
+   
+}
+
+.pageBody{
+    display: flexbox;
+    background-color: #242424;
+    height: 3000px;
+    width: 100%;
+}
+
+
+.map{
+    margin: 10px;
+    width: 800px;
+    height: 500px;
+    background-color: aliceblue;
+}
