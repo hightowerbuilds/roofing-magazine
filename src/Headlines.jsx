@@ -55,7 +55,7 @@ function handleMoreTwo(){
                     <h2>4 Equivocation:</h2> An equivocation is a statement crafted to mislead or confuse readers or listeners by using multiple meanings or interpretations of a word or simply through unclear phrasing. Example: While I have a clear plan for the campus budget that accounts for every dollar spent, my opponent simply wants to throw money at special interest projects. 
                 </p>
                 <p>
-                    <h2>5 Slippery slope:</h2>
+                    <h2>5 Slippy slope:</h2>
                     With a slippery slope fallacy, the arguer claims a specific series of events will follow one starting point, typically with no supporting evidence for this chain of events. Example: If we make an exception for Bijals service dog, then other people will want to bring their dogs. Then everybody will bring their dog, and before you know it, our restaurant will be overrun with dogs, their slobber, their hair, and all the noise they make, and nobody will want to eat here anymore. 
                 </p>
                 <p>
