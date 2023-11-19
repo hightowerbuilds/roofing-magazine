@@ -76,7 +76,8 @@ function handleClickFive(){
     fontSize: 34
   }}>
   <h1 style={{
-    color: '#246024'
+    color: '#246024',
+    width: 1260
   }}>roofing magazine</h1>
     <div>
       <button onClick={handleClickOne} style={{
