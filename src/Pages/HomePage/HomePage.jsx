@@ -3,8 +3,6 @@ import './HomePage.css'
 import NavBar from '../../Components/NavBar/NavBar'
 import { useEffect, useState } from 'react';
 import { supabase } from '../../services/supabase';
-import { useState } from 'react';
-
 
 
 
@@ -28,7 +26,7 @@ export default function HomePage() {
             if (error) {
                 console.error('Error fetching images:', error);
             } else {
-                setImages(data);
+                setImages(data.storage.from.getPublicUrl('images'));
             }
             setLoading(false);
         }
