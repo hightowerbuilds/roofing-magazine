@@ -24,9 +24,3 @@
     flex-wrap: wrap;
 }
 
-.homePageThumbnail {
-    height: 300px;
-    width: 300px;
-    margin: .5%;
-    border: 2px rgb(84, 130, 170) solid;
-}
