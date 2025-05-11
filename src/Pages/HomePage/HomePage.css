@@ -10,12 +10,7 @@
 }
 
 .homePageHeading {
-    width: 100%;
-    font-size: 42px;
-    display: flex;
-    justify-content: start;
-    padding: 2%;
-    border-bottom: 2px dodgerblue dashed;
+
 }
 
 .homePageSectionOne {

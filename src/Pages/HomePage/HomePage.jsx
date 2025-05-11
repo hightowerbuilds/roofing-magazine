@@ -10,23 +10,19 @@ import { supabase } from '../../services/supabase';
 
 export default function HomePage() {
 
-    const [images, setImages] = useState([]);
+    const [images, setImages] = useState();
     const [loading, setLoading] = useState(true);
 
-    function fetchImages() {
-    return supabase
-        .from('images') // Replace 'images' with your table name
-        .select('*');
-}
+ 
 
     useEffect(() => {
 
         async function loadImages() {
-            const { data, error } = await fetchImages();
+            const { data, error } = await supabase.storage.from('images').getPublicUrl('titles')
             if (error) {
                 console.error('Error fetching images:', error);
             } else {
-                setImages(data.storage.from.getPublicUrl('images'));
+                setImages(data.publicUrl);
             }
             setLoading(false);
         }
@@ -39,7 +35,7 @@ export default function HomePage() {
         <NavBar />
 
        <div className='homePageHeading'>
-        ROOFING MAGAZINE
+        <img src={images} />
         </div>
 
         <div className='homePageSectionOne'>

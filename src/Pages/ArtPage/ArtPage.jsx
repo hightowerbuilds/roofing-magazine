@@ -5,6 +5,8 @@ export default function ArtPage() {
     <div>
         
         <NavBar />
+
+        visions
     </div>
   )
 }
