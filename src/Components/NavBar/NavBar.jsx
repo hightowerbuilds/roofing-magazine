@@ -9,6 +9,7 @@ export default function NavBar() {
         <NavLink to='/blog'><button className='navButton'>writing</button></NavLink>
         <NavLink to='/art'><button className='navButton'>visions</button></NavLink>
         <NavLink to='/games'><button className='navButton'>games</button></NavLink>
+        <NavLink to='/badjump'><button className='navButton'>bad jump</button></NavLink>
 
     </div>
   )

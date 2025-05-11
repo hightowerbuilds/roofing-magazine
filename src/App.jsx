@@ -3,6 +3,7 @@ import HomePage from './Pages/HomePage/HomePage'
 import BlogPage from './Pages/BlogPage/BlogPage'
 import ArtPage from './Pages/ArtPage/ArtPage'
 import GamesPage from './Pages/GamesPage/GamesPage'
+import BadJump from './Pages/BadJumpPage/BadJump'
 
 	export default function App(){
 		return (
@@ -11,6 +12,7 @@ import GamesPage from './Pages/GamesPage/GamesPage'
         		<Route path="/blog" element={<BlogPage />} />
 				<Route path='/art' element={<ArtPage />} />
 				<Route path='/games' element={<GamesPage />} />
+				<Route path='/badjump' element={<BadJump />} />
 			</ Routes>
 		)
 	}

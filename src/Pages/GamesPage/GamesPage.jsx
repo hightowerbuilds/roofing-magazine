@@ -1,4 +1,5 @@
 
+import { NavLink } from 'react-router-dom'
 import NavBar from '../../Components/NavBar/NavBar'
 
 export default function GamesPage() {
@@ -6,8 +7,12 @@ export default function GamesPage() {
     <div>
 
         <NavBar />
+        
+        games page
 
-        games
+        bad jump
+        <NavLink to='/badjump'><button className='navButton'>bad jump</button></NavLink>
+   
     </div>
   )
 }

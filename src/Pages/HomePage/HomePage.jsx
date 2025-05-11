@@ -10,7 +10,7 @@ import { supabase } from '../../services/supabase';
 
 export default function HomePage() {
 
-    const [images, setImages] = useState();
+    const [images, setImages] = useState([]);
     const [backgroundImage, setBackgroundImage] = useState();
     const [loading, setLoading] = useState(true);
 
@@ -18,16 +18,7 @@ export default function HomePage() {
 
     useEffect(() => {
 
-        async function loadBackgroundImage(){
-            const { data, error } = await supabase.storage.from('images').getPublicUrl('backgrounds/texture-background.png');
-            if (error) {
-                console.error('Error fetching images:', error);
-            } else {
-                setImages(data.publicUrl);
-            }
-            setLoading(false);
-        }
-
+  
         async function loadImages() {
             const { data, error } = await supabase.storage.from('images').getPublicUrl('titles/roofing-magazine.png');
             if (error) {
@@ -39,8 +30,22 @@ export default function HomePage() {
         }
 
         loadImages();
-        loadBackgroundImage();
     }, []);
+
+    useEffect(() => {
+        async function loadBackgroundImage() {
+            const { data, error } = await supabase.storage.from('images').getPublicUrl('backgrounds/texture-background.png');
+            if (error) {
+                console.error('Error fetching images:', error);
+            } else {
+                setBackgroundImage(data.publicUrl);
+            }
+            setLoading(false);
+        }
+
+        loadBackgroundImage();
+    }
+    , []);
 
   return (
     <div className='homePageMainContainer' style={{
