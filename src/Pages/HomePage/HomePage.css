@@ -9,9 +9,11 @@
     font-family: monospace;
 }
 
-.homePageHeading {
+/* .homePageHeading {
+    width: 950px;
 
-}
+    border-bottom: 2px dodgerblue dashed;
+} */
 
 .homePageSectionOne {
     padding: 2%;
