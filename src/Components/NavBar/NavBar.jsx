@@ -18,7 +18,7 @@ export default function NavBar() {
         <NavLink to='/blog'><button className='navButton'>writing</button></NavLink>
         <NavLink to='/art'><button className='navButton'>visions</button></NavLink>
         <NavLink to='/games'><button className='navButton'>games</button></NavLink>
-    
+        <NavLink to='/journal'><button className='navButton'>journal</button></NavLink>
     </div>
   )
 }
