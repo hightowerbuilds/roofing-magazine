@@ -20,7 +20,7 @@ export default function HomePage() {
 
   
         async function loadImages() {
-            const { data, error } = await supabase.storage.from('images').getPublicUrl('titles/roofing-magazine.png');
+            const { data, error } = await supabase.storage.from('images').getPublicUrl('titles/Sketches.png');
             if (error) {
                 console.error('Error fetching images:', error);
             } else {
@@ -34,7 +34,7 @@ export default function HomePage() {
 
     useEffect(() => {
         async function loadBackgroundImage() {
-            const { data, error } = await supabase.storage.from('images').getPublicUrl('backgrounds/texture-background.png');
+            const { data, error } = await supabase.storage.from('images').getPublicUrl('backgrounds/volcano-background.png');
             if (error) {
                 console.error('Error fetching images:', error);
             } else {
@@ -69,8 +69,8 @@ export default function HomePage() {
         className='homePageHeading' 
         style={{ 
             backgroundImage: `url(${images})`, 
-            width: '25%', 
-            height: '15vh', 
+            width: '50%', 
+            height: '50vh', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center' 
             }}>
