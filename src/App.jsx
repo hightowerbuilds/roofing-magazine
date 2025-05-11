@@ -12,7 +12,7 @@ import BadJump from './Pages/BadJumpPage/BadJump'
         		<Route path="/blog" element={<BlogPage />} />
 				<Route path='/art' element={<ArtPage />} />
 				<Route path='/games' element={<GamesPage />} />
-				<Route path='/badjump' element={<BadJump />} />
+				<Route path='/badjumper' element={<BadJump />} />
 			</ Routes>
 		)
 	}

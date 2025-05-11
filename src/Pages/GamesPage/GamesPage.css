@@ -1,0 +1,17 @@
+
+.gamesPageMainContainer {
+    width: 100%;
+    height: 100vh;
+}
+
+
+.badJumperContainer {
+    width: 100;
+    height:50vh;
+    top: 50%;
+    left: 10%;
+    position: absolute;
+    z-index: 2;
+    font-family: monospace;
+    font-size: 12px;
+}

@@ -48,14 +48,22 @@ export default function HomePage() {
     , []);
 
   return (
-    <div className='homePageMainContainer' style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '100%',
-        height: '100vh',
+
+    <>
+    <NavBar />
+     <div 
+        className='homePageMainContainer' 
+        style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '100%',
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
     }}> 
-        <NavBar />
+        
 
        <div 
         className='homePageHeading' 
@@ -66,12 +74,11 @@ export default function HomePage() {
             backgroundSize: 'cover', 
             backgroundPosition: 'center' 
             }}>
-
         </div>
 
-        <div className='homePageSectionOne'>
-       
-        </div>
+      
     </div>
+    </>
+   
   )
 }
