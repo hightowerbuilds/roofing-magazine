@@ -1,0 +1,11 @@
+.journalPageMainContainer {
+    height: 200vh;
+    width: 45%;
+    margin: 2%;
+    display: flex;
+}
+
+.textInputJournalPage {
+    display: flex;
+    flex-wrap: wrap;
+}

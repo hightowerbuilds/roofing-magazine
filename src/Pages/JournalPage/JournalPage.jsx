@@ -1,105 +1,67 @@
-import NavBar from '../../Components/NavBar/NavBar'
-import './JournalPage.css'
+import NavBar from '../../Components/NavBar/NavBar';
+import './JournalPage.css';
 import { useState } from 'react';
 
-
-/**
- * create a page that opens a div for each month and then a div for each day
- * at that point the user can create an entry in to the journal
- * 
- * need to create a supabase table for the journal
- */
+const months = [
+  { name: 'January', days: 31 },
+  { name: 'February', days: 28 }, // Will handle leap year dynamically later
+  { name: 'March', days: 31 },
+  { name: 'April', days: 30 },
+  { name: 'May', days: 31 },
+  { name: 'June', days: 30 },
+  { name: 'July', days: 31 },
+  { name: 'August', days: 31 },
+  { name: 'September', days: 30 },
+  { name: 'October', days: 31 },
+  { name: 'November', days: 30 },
+  { name: 'December', days: 31 },
+];
 
 export default function JournalPage() {
+  const currentYear = 2025; // You can make this dynamic
+  const [expandedMonth, setExpandedMonth] = useState(null);
 
-const [showJan, setShowJan] = useState('none');
-const [showFeb, setShowFeb] = useState('none');
-const [showMar, setShowMar] = useState('none');
-const [showApr, setShowApr] = useState('none');
-const [showMay, setShowMay] = useState('none');
-const [showJun, setShowJun] = useState('none');
-const [showJul, setShowJul] = useState('none');
-const [showAug, setShowAug] = useState('none');
-const [showSep, setShowSep] = useState('none');
-const [showOct, setShowOct] = useState('none');
-const [showNov, setShowNov] = useState('none');
-const [showDec, setShowDec] = useState('none');
+  const getDaysInMonth = (year, monthIndex) => {
+    // Month index is 0-based (0 for January)
+    return new Date(year, monthIndex + 1, 0).getDate();
+  };
 
-const handleJanuary = () => {
-   if (showJan === 'contents') {
-        setShowJan('none');
-    }
-    else if (showJan === 'none') {
-        setShowJan('contents');
-    }
-}
-
-const handleFebruary = () => {
-    if (showFeb === 'contents') {
-        setShowFeb('none');
-    }
-    else if (showFeb === 'none') {
-        setShowFeb('contents');
-    }
-}
+  const toggleMonth = (monthName) => {
+    setExpandedMonth(expandedMonth === monthName ? null : monthName);
+  };
 
   return (
-    <div>
-        <NavBar />
-        
-      <h2>year 2025</h2>
+    <>
+    <NavBar />
+      <div className='journalPageMainContainer'>
+      <h2>Year {currentYear}</h2>
 
-        <br /><br />
-        <div>
-           <button onClick={handleJanuary} >january</button>
-            <div style={{ display: showJan }}>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>   
-            </div>
+      {months.map((month, index) => (
+        <div key={month.name}>
+          <button onClick={() => toggleMonth(month.name)}>
+            {month.name}
+          </button>
+          <div
+            className="month-days"
+            style={{
+              display: expandedMonth === month.name ? 'grid' : 'none',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(50px, 1fr))', // Basic grid layout
+              gap: '5px',
+              marginTop: '10px',
+            }}
+          >
+            {Array.from({ length: getDaysInMonth(currentYear, index) }, (_, dayIndex) => (
+              <div key={dayIndex + 1} className="day-entry">
+                {dayIndex + 1}
+                {/* You can add input fields or buttons for creating journal entries here */}
+               <textarea placeholder="Write your entry here..." rows="3" cols="20"></textarea>
+              </div>
+            ))}
+          </div>
         </div>
-        <div>
-            <button onClick={handleFebruary}>february</button>
-             <div style={{ display: showFeb }}>
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
-                <div>10</div>
-                <div>11</div>
-                <div>12</div>
-                <div>13</div>
-                <div>14</div>
-                <div>15</div>   
-            </div>
-        </div>
-        <div>march</div>
-        <div>april</div>
-        <div>may</div>
-        <div>june</div>
-        <div>july</div>
-        <div>august</div>
-        <div>september</div>
-        <div>october</div>
-        <div>november</div>
-        <div>december</div>
+      ))}
     </div>
-  )
+    </>
+   
+  );
 }
