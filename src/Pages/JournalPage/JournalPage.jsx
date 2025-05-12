@@ -2,6 +2,9 @@ import NavBar from '../../Components/NavBar/NavBar';
 import './JournalPage.css';
 import { useState } from 'react';
 
+
+
+
 const months = [
   { name: 'January', days: 31 },
   { name: 'February', days: 28 }, // Will handle leap year dynamically later
@@ -37,28 +40,27 @@ export default function JournalPage() {
       <h2>Year {currentYear}</h2>
 
       {months.map((month, index) => (
-        <div key={month.name}>
-          <button onClick={() => toggleMonth(month.name)}>
-            {month.name}
-          </button>
-          <div
-            className="month-days"
-            style={{
-              display: expandedMonth === month.name ? 'grid' : 'none',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(50px, 1fr))', // Basic grid layout
-              gap: '5px',
-              marginTop: '10px',
-            }}
-          >
-            {Array.from({ length: getDaysInMonth(currentYear, index) }, (_, dayIndex) => (
-              <div key={dayIndex + 1} className="day-entry">
-                {month.name + ' ' + (dayIndex + 1)}
-                {/* You can add input fields or buttons for creating journal entries here */}
-               <textarea type='text' className='journalTextInput'/>
-              </div>
-            ))}
-          </div>
+        <div>
+            <div key={month.name}>
+                <button onClick={() => toggleMonth(month.name)}>
+                {month.name}
+                </button>
+            </div>
+            <div
+                key={month.name}
+                className="month-days"
+                style={{display: expandedMonth === month.name ? 'grid' : 'none',}}>
+                {Array.from({ length: getDaysInMonth(currentYear, index) }, (_, dayIndex) => (
+                    <div key={dayIndex + 1} className="day-entry">
+                        {month.name + ' ' + (dayIndex + 1)}
+                        {/* You can add input fields or buttons for creating journal entries here */}
+                        <textarea type='text' className='journalTextInput'/>
+                    </div>
+                ))}
+            </div>
+        
         </div>
+      
       ))}
     </div>
     </>

@@ -70,7 +70,7 @@ export default function HomePage() {
         style={{ 
             backgroundImage: `url(${images})`, 
             width: '50%', 
-            height: '50vh', 
+            height: '70vh', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center' 
             }}>

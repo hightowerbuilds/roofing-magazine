@@ -1,8 +1,9 @@
 .journalPageMainContainer {
-    height: 200vh;
-    width: 45%;
+   
+    width: 500px;
     margin: 2%;
-    display: flex;
+    display: inline-flex;
+    position: absolute;
 }
 
 .journalTextInput {
@@ -12,4 +13,8 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     background-color: antiquewhite;
+}
+
+.month-days {
+    position: absolute;
 }
