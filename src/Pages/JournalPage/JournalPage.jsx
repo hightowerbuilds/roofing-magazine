@@ -52,9 +52,9 @@ export default function JournalPage() {
           >
             {Array.from({ length: getDaysInMonth(currentYear, index) }, (_, dayIndex) => (
               <div key={dayIndex + 1} className="day-entry">
-                {dayIndex + 1}
+                {month.name + ' ' + (dayIndex + 1)}
                 {/* You can add input fields or buttons for creating journal entries here */}
-               <textarea placeholder="Write your entry here..." rows="3" cols="20"></textarea>
+               <textarea type='text' className='journalTextInput'/>
               </div>
             ))}
           </div>
