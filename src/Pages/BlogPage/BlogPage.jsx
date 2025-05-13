@@ -35,7 +35,7 @@ export default function BlogPage() {
     
 
       <div className='blogFirstSelection'>
-        <h2>why be a roofer?</h2> <button onClick={handleSelection}>show article</button>
+        <h2>Be a roofer?</h2> <button onClick={handleSelection}>show article</button>
           <br /><br />
         <p style={{ display: firstSelection}}>
           I've been posed with a question, a question that stands night and day at some 30 odd degrees beckoning my response or some kind of upward momentum towards its slopes. Why do I love roofing? My course has been tried a mere year at the be-footed and hammered talent, the trade of the billy goat, long-armed pine percher. Did you love climbing trees as a kid? You like jumping off bridges and cliffs into some ice cold run off? Does the sound of screw gun sort of calm you down? You may love roofing as well. But, as seen over the past year or so you probably won't. 
