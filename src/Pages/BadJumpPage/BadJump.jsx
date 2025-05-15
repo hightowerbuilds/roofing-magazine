@@ -1,8 +1,32 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './BadJump.css'
 import NavBar from '../../Components/NavBar/NavBar'
+import { supabase } from '../../services/supabase'
+
 
 export default function BadJump() {
+
+  const [ backgroundImage, setBackgroundImage ] = useState();
+
+  useEffect(() => {
+    async function loadImage() {
+       const { data, error } = await supabase.storage.from('images').getPublicUrl('background/volcano-background.png')
+       if (error) {
+        console.log('error fetching') 
+       } else {
+        setBackgroundImage(data.publicUrl)
+       }
+    } 
+      loadImage();
+  }, [])
+
+
+
+
+
+
+
+
   const canvasRef = useRef(null)
   const blockRef = useRef({
     x: 100,
@@ -240,14 +264,14 @@ export default function BadJump() {
       // Draw platforms
       gameState.platforms.forEach(platform => {
         // Draw the purple platform
-        ctx.fillStyle = '#800080' // Purple color
+        ctx.fillStyle = '#4c785d' // Purple color
         ctx.fillRect(platform.x, platform.y, platform.width, platform.height)
         
         // Draw collectible if it exists
         if (platform.hasCollectible) {
           if (platform.collectibleType === 'circle') {
             // Draw yellow circle
-            ctx.fillStyle = '#FFFF00' // Bright yellow
+            ctx.fillStyle = '#f6a309' // Bright yellow
             ctx.beginPath()
             ctx.arc(
               platform.x + platform.width / 2,
@@ -265,7 +289,7 @@ export default function BadJump() {
             const rectY = platform.y - rectHeight / 2
 
             // Draw red stripe
-            ctx.fillStyle = '#FF0000'
+            ctx.fillStyle = '#443535'
             ctx.fillRect(rectX, rectY, rectWidth, rectHeight / 3)
             
             // Draw white stripe
@@ -273,7 +297,7 @@ export default function BadJump() {
             ctx.fillRect(rectX, rectY + rectHeight / 3, rectWidth, rectHeight / 3)
             
             // Draw blue stripe
-            ctx.fillStyle = '#0000FF'
+            ctx.fillStyle = '#00ff7b'
             ctx.fillRect(rectX, rectY + (rectHeight * 2 / 3), rectWidth, rectHeight / 3)
           } else if (platform.collectibleType === 'tax') {
             // Draw black box
@@ -331,7 +355,7 @@ export default function BadJump() {
       }
 
       // Draw block
-      ctx.fillStyle = '#4CAF50'
+      ctx.fillStyle = '#20f427'
       ctx.fillRect(block.x, block.y, block.width, block.height)
 
       // Draw scoreboard
@@ -356,9 +380,10 @@ export default function BadJump() {
   }, [])
 
   return (
-    <div className="badJumpContainer">
+    <div  className="badJumpContainer">
       <NavBar />
       <canvas ref={canvasRef} className="gameCanvas" />
+
       </div>
   )
 }

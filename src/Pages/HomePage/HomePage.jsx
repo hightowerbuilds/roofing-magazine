@@ -69,8 +69,8 @@ export default function HomePage() {
         className='homePageHeading' 
         style={{ 
             backgroundImage: `url(${images})`, 
-            width: '50%', 
-            height: '70vh', 
+            width: '90%', 
+            height: '90%', 
             backgroundSize: 'cover', 
             backgroundPosition: 'center' 
             }}>

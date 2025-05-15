@@ -1,7 +1,7 @@
 .badJump-container {
   width: 100vw;
   height: 100vh;
-  background-color: #e6f3ff;
+
   margin: 0;
   padding: 0;
   position: relative;
@@ -9,6 +9,7 @@
 
 .gameCanvas {
   position: absolute;
+  background-image: url(https://hhdigyvdazfxzeczqizv.supabase.co/storage/v1/object/public/images/backgrounds/mountains-background.png);
   top: 0;
   left: 0;
   width: 100%;
