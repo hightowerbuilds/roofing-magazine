@@ -1,8 +1,26 @@
 import './BlogPage.css'
 import NavBar from '../../Components/NavBar/NavBar'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { supabase } from '../../services/supabase'
+ 
 export default function BlogPage() {
+
+  const [backgroundImage, setBackgroundImage ] = useState();
+  
+
+  useEffect(() => {
+        async function loadImages() {
+            const { data, error } = await supabase.storage.from('images').getPublicUrl('backgrounds/mountains-background.png');
+            if (error) {
+                console.error('Error fetching images:', error);
+            } else {
+                setBackgroundImage(data.publicUrl);
+            }
+        }
+
+        loadImages();
+    }, []);
+
 
   const [ firstSelection, setFirstSelection ] =  useState('none')
   const handleSelection = () => {
@@ -45,8 +63,14 @@ export default function BlogPage() {
         </p>
       </div>
 
-      <div className='blogSecondSelection'>
-        <h2>raM and Mountain</h2> <button onClick={handleSecondSelection}>read story</button>
+      <div style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'start',
+        height: '50vh',
+        overflow: 'scroll'
+      }} className='blogSecondSelection'>
+        <p>Ram and Mountain</p> <button onClick={handleSecondSelection}>read story</button>
         <br /><br />
         <p style={{ display: secondSelection}}>
             <h4>
