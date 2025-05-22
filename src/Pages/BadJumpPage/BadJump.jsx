@@ -226,7 +226,7 @@ export default function BadJump() {
         ctx.fillRect(0, 0, canvas.width, canvas.height)
 
         // Draw "YOU SUCK" text
-        ctx.fillStyle = '#FFFFFF'
+        ctx.fillStyle = '#e10a0a'
         ctx.font = 'bold 48px Arial'
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'
@@ -264,7 +264,7 @@ export default function BadJump() {
       // Draw platforms
       gameState.platforms.forEach(platform => {
         // Draw the purple platform
-        ctx.fillStyle = '#4c785d' // Purple color
+        ctx.fillStyle = '#784c78' // Purple color
         ctx.fillRect(platform.x, platform.y, platform.width, platform.height)
         
         // Draw collectible if it exists
